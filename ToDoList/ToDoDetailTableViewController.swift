@@ -1,0 +1,31 @@
+//
+//  ToDoDetailTableViewController.swift
+//  ToDoList
+//
+//  Created by Alexander Falcone on 2/10/20.
+//  Copyright © 2020 Alexander Falcone. All rights reserved.
+//
+
+import UIKit
+
+class ToDoDetailTableViewController: UITableViewController {
+    @IBOutlet weak var saveBarButton: UIBarButtonItem!
+    @IBOutlet weak var nameField: UITableViewCell!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var noteView: UITextView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+
+    @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
+        let isPresentingInAddMode = presentingViewController is UINavigationController
+        if isPresentingInAddMode {
+            dismiss(animated: true, completion: nil)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
+    }
+    
+}
